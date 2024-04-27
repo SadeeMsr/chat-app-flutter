@@ -3,6 +3,17 @@
 # ID-Student-name
 1930672- Md. Shadi Rohan
 
+## Tasks
+
+- **Complete Chat App**: Finished implementing all features discussed in today's class to finalize the chat application.
+- **Modify Chat Bubble**: Updated the chat bubble to display the user profile avatar along with the message. The avatar should be generated from the user's name. Adjust the message collection structure if necessary.
+- **Discover Page**: Created a Discover page where users can see a list of registered users along with their avatars.
+
+## Added Bonus Features
+
+- **Last Login Time**: Showed the last login time of each user on the Discover page.
+- **"Currently Active" Signal**: Added an indicator on the Discover page to show whether a user is currently active.
+
 ## Previews
 
 ## Sign-up-screen
