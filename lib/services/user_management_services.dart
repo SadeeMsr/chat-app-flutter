@@ -21,7 +21,7 @@ class UserManage {
 
   Future<void> updateUserLastLogin(String userID) async {
     await firebase.collection("users").doc(userID).update({
-      "last_login": Timestamp.now(), // Update last_login field with current timestamp
+      "lastLogin": Timestamp.now(), // Update last_login field with current timestamp
     });
   }
 }

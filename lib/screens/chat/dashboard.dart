@@ -65,8 +65,6 @@ class _DashboardState extends State<Dashboard> {
                     onPressed: () async {
                       final auth = FirebaseAuth.instance;
                       if (auth.currentUser != null) {
-                        final uid = auth.currentUser!.uid;
-                        await UserManage().updateUserLastLogin(auth.currentUser!.uid);
                         await auth.signOut();
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
