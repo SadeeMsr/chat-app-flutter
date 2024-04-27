@@ -132,6 +132,7 @@ class _SignUpState extends State<SignUp> {
                                   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const Dashboard()), (route) => false);
                                   if(value.user != null)
                                     {
+                                      UserManage().updateUserLastLogin(value.user!.uid);
                                       showSnackBar(
                                           context: context,
                                           title: "Successful",
