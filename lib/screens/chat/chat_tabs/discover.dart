@@ -1,6 +1,7 @@
 import 'package:chat_application_iub_cse464/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:random_avatar/random_avatar.dart';
 
 // Import UserData model
@@ -14,6 +15,17 @@ class DiscoverPage extends StatefulWidget {
 
 class _DiscoverPageState extends State<DiscoverPage> {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+
+  bool isActive(Timestamp? lastLogin) {
+    if (lastLogin != null) {
+      final now = Timestamp.now().toDate();
+      final lastLoginDate = lastLogin.toDate();
+      final difference = now.difference(lastLoginDate).inMinutes;
+      return difference <= 5;
+    } else {
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +73,46 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       height: 50, // Set desired height for the avatar
                       width: 50, // Set desired width for the avatar
                     ),
-                    title: Text(user.name ?? ''),
-                    subtitle: Text(user.email ?? ''),
+                    title: Row(
+                      children: [
+                        Text(user.name ?? ''),
+                        const SizedBox(width: 10),
+                        isActive(user.lastLogin)
+                            ? const Icon(Icons.circle,
+                                color: Colors.green, size: 12)
+                            : const Icon(Icons.circle,
+                                color: Colors.grey, size: 12),
+                      ],
+                    ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(user.email ?? ''),
+                        FutureBuilder<DocumentSnapshot>(
+                          future: _firebaseFirestore
+                              .collection('users')
+                              .doc(user.uuid)
+                              .get(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return Text('Loading...');
+                            } else if (snapshot.hasError) {
+                              return Text('Error: ${snapshot.error}');
+                            } else {
+                              final lastLogin =
+                                  snapshot.data!.get('lastLogin');
+                              final formattedLastLogin = lastLogin != null
+                                  ? DateFormat('MMM dd, yyyy')
+                                      .format(lastLogin.toDate())
+                                  : 'N/A';
+                              return Text(
+                                  'Last logged in: $formattedLastLogin');
+                            }
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );

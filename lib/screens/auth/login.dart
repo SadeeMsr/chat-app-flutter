@@ -1,5 +1,6 @@
 import 'package:chat_application_iub_cse464/screens/auth/sign_up.dart';
 import 'package:chat_application_iub_cse464/screens/chat/dashboard.dart';
+import 'package:chat_application_iub_cse464/services/user_management_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -78,12 +79,14 @@ class _LoginPageState extends State<LoginPage> {
                               FocusScope.of(context).unfocus();
                               if(formKey.currentState!.validate())
                               {
+                                
                                 await auth.signInWithEmailAndPassword(
                                     email: emailController.text.trim(),
                                     password: passwordController.text.trim()
                                 ).then((value) {
                                   if(value.user != null)
                                   {
+                                    UserManage().updateUserLastLogin(value.user!.uid);
                                     showSnackBar(
                                         context: context,
                                         title: "Successful",
