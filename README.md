@@ -1,16 +1,26 @@
-# chat_application_iub_cse464
+# chat_app_assignment-02
 
-A new Flutter project.
+# ID-Student-name
+1930672- Md. Shadi Rohan
 
-## Getting Started
+## Previews
 
-This project is a starting point for a Flutter application.
+## Sign-up-screen
+![437718881_247131725153137_1287461619241772892_n](https://github.com/SadeeMsr/chat-app-flutter/assets/76898633/ea135f82-2fba-464e-bc00-b04f3bbafa94)
 
-A few resources to get you started if this is your first Flutter project:
+## log-in-screen
+![439223132_465946646001910_73984725824606188_n](https://github.com/SadeeMsr/chat-app-flutter/assets/76898633/19dc69e1-4835-41c0-a33e-7abb46a7afdd)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Group-chat-screen-and-logged-or-signed-in-successfully
+![437755315_1435607043757316_7512317491891296447_n](https://github.com/SadeeMsr/chat-app-flutter/assets/76898633/a785f3e1-0d1f-4161-98b9-c7a39f6d4ccb)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Message-writing-screen
+![437755315_1435607043757316_7512317491891296447_n](https://github.com/SadeeMsr/chat-app-flutter/assets/76898633/da5b2062-98bb-4346-a170-d9671034d483)
+
+
+## Successfully-message-posting-screen
+![437754678_936665361525050_2257663959425323114_n](https://github.com/SadeeMsr/chat-app-flutter/assets/76898633/d0508ea7-2c1e-4193-b765-2f0c22be22fc)
+
+## Discover-screen-with-last-logged-in-and-active-status
+![437570332_1437988020180862_5649804215339663505_n](https://github.com/SadeeMsr/chat-app-flutter/assets/76898633/32a06952-3ae1-487d-851f-fb2025772990)
+
